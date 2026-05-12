@@ -1,0 +1,23 @@
+[workspace]
+resolver = "2"
+members = [
+    "contracts/region-factory",
+    "contracts/fractional-ownership",
+    "contracts/yield-distributor",
+    "contracts/marketplace",
+    "contracts/governance-dao",
+    "contracts/treasury",
+]
+
+[workspace.dependencies]
+soroban-sdk = { version = "22.0.0" }
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
